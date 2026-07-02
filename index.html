@@ -615,10 +615,8 @@
 
     <header>
         <div class="logo-section">
-            <div class="logo-icon" id="logo-container" style="background: var(--accent-gradient); color: white; padding: 0.5rem; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3); width: 40px; height: 40px;">
-                <!-- Logo image placeholder -->
-                <img id="logo-img" src="logo.png" alt="Logo" style="display:none; max-height: 100%; max-width: 100%; object-fit: contain;">
-                <i data-lucide="image" id="logo-placeholder"></i>
+            <div class="logo-icon" id="logo-container" style="background: transparent; padding: 0; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; overflow: hidden;">
+                <img id="logo-img" src="logo.png" alt="Logo" style="max-height: 100%; max-width: 100%; object-fit: contain;">
             </div>
             <div>
                 <p class="logo-subtitle" style="font-size: 1rem; font-weight: 700; letter-spacing: -0.01em;">Sınav Analiz ve Gelişim Sistemi</p>
@@ -789,29 +787,7 @@
             initIndexedDB();
             initSearch();
             setupDragAndDrop();
-            checkLogo();
         });
-
-        // Check if logo.png exists and load it
-        function checkLogo() {
-            const logoImg = document.getElementById('logo-img');
-            const logoPlaceholder = document.getElementById('logo-placeholder');
-            const logoContainer = document.getElementById('logo-container');
-            
-            const img = new Image();
-            img.src = 'logo.png';
-            img.onload = function() {
-                logoImg.style.display = 'block';
-                logoPlaceholder.style.display = 'none';
-                logoContainer.style.background = 'transparent';
-                logoContainer.style.boxShadow = 'none';
-                logoContainer.style.padding = '0';
-            };
-            img.onerror = function() {
-                logoImg.style.display = 'none';
-                logoPlaceholder.style.display = 'block';
-            };
-        }
 
         // Theme management
         function initTheme() {
