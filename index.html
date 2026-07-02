@@ -598,7 +598,7 @@
             }
         }
 
-        /* Responsive */
+        /* Responsive CSS Rules */
         @media (max-width: 1024px) {
             .app-container {
                 grid-template-columns: 1fr;
@@ -607,6 +607,93 @@
             aside {
                 border-right: none;
                 border-bottom: 1px solid var(--border-color);
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .sidebar-card {
+                flex: 1 1 280px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 0.75rem 1rem;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .logo-subtitle {
+                font-size: 0.9rem !important;
+            }
+
+            .header-actions {
+                gap: 0.5rem;
+            }
+
+            .btn span {
+                display: none; /* Hide text on mobile */
+            }
+
+            .btn {
+                padding: 0.5rem;
+                border-radius: var(--radius-md);
+            }
+
+            main {
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .info-card {
+                padding: 1rem;
+                border-radius: var(--radius-md);
+            }
+
+            .info-card-header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: stretch;
+            }
+
+            .info-card-header .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .student-meta {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .chart-card {
+                padding: 1rem;
+            }
+
+            .chart-wrapper {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-icon {
+                width: 45px !important;
+                height: 45px !important;
+            }
+            
+            .logo-subtitle {
+                font-size: 0.8rem !important;
             }
         }
     </style>
@@ -624,10 +711,10 @@
         </div>
         <div class="header-actions">
             <button class="btn btn-secondary" onclick="exportData()" title="Verileri yedek dosyası olarak kaydet">
-                <i data-lucide="download"></i> Yedek Al (Dışa Aktar)
+                <i data-lucide="download"></i> <span>Yedek Al</span>
             </button>
             <button class="btn btn-secondary" onclick="triggerImport()" title="Yedek dosyasını geri yükle">
-                <i data-lucide="upload"></i> Yedek Yükle
+                <i data-lucide="upload"></i> <span>Yedek Yükle</span>
             </button>
             <input type="file" id="backup-file-input" style="display:none" accept=".json" onchange="importData(event)">
             <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()" title="Temayı Değiştir">
@@ -702,7 +789,7 @@
                         </div>
                     </div>
                     <button class="btn btn-primary" onclick="window.print()">
-                        <i data-lucide="printer"></i> Karne Yazdır / PDF Kaydet
+                        <i data-lucide="printer"></i> <span>Karne Yazdır / PDF Kaydet</span>
                     </button>
                 </div>
 
@@ -757,7 +844,7 @@
             <!-- Hoş Geldiniz Paneli -->
             <div class="info-card" id="welcome-panel" style="text-align: center; padding: 4rem 2rem;">
                 <i data-lucide="activity" size="64" style="color:var(--accent-color); margin: 0 auto 1.5rem auto;"></i>
-                <h2 style="font-size: 1.75rem; font-weight:700; margin-bottom: 0.5rem;">Sınav Analiz Sistemine Hoş Geldiniz</h2>
+                <h2 style="font-size: 1.75rem; font-weight:700; margin-bottom: 0.5rem;">Analiz Sistemine Hoş Geldiniz</h2>
                 <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 2rem auto; font-size:0.95rem;">
                     Öğrenci karnelerini, sınav ortalamalarını ve net gelişim grafiklerini görmek için yukarıdaki arama kutusuna bir öğrencinin ismini veya numarasını yazarak arayınız.
                 </p>
